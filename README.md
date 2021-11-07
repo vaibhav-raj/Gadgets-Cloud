@@ -5,42 +5,26 @@
 In this project we made fully-functional e-commerce website named as Gadgets-Cloud.
 
 ## Technologies & Libraries used
-
 #### Tech Stack-
-<p float="left">  
-                <img
+<p float="left" "> <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img
                         src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-                        alt="javascript" width="100" height="100" />  
-                       
+                        alt="javascript" width="100" height="100" /> </a> <a href="https://postman.com" target="_blank">
                 <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="100"
-                        height="100" />
-                         <img
+                        height="100" /> </a> <a href="https://reactjs.org/" target="_blank"> <img
                         src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg"
-                        alt="react" width="100" height="100" />
-                        <img
+                        alt="react" width="100" height="100" /> </a><img
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg"
-                alt="express" width="100" height="100" />
-                 <img
+                alt="express" width="100" height="100" /> </a> <a href="https://www.mongodb.com/" target="_blank"> <img
                         src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg"
-                        alt="mongodb" width="100" height="100" /> 
-                        <img
+                        alt="mongodb" width="100" height="100" /> </a> <a href="https://nodejs.org" target="_blank"> <img
                         src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"
-                        alt="nodejs" width="100" height="100" />
-                        <img
+                        alt="nodejs" width="100" height="100" /> </a> <a href="https://reactjs.org/" target="_blank"> <img
                         src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg"
-                        alt="react" width="100" height="100" /> 
-                        <img
+                        alt="react" width="100" height="100" /> </a> <a href="https://redux.js.org" target="_blank"> <img
                         src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg"
-                        alt="redux" width="100" height="100" /> 
-                        </p>
+                        alt="redux" width="100" height="100" /> </a> </p>
 
-<p float="left">
-    <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png" width="100" height="100">
-    <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_640.png" width="100" height="100">
-    <img src="https://raw.githubusercontent.com/krishaayjois21/krishaayjois21/master/assets/javascript.png" width="100" height="100">
-    <img src="https://yogalayout.com/static/reactnative.4e03ea5d.png" width="100" height="100">
-    <img src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png" width="95" height="95">
- </p>
 
 #### Libraries Stack-
 
