@@ -28,7 +28,7 @@
 }
 
 .detailsBlock_1 > h2 {
-  color: rgb(54, 54, 54);
+  color:#6D2484;
   font: 600 1.6vmax "Roboto";
 }
 
@@ -47,9 +47,9 @@
   padding: 1vmax 0;
 }
 
-.detailsBlock_2-span {
+.detailsBlock_2_span {
   font: 200 0.8vmax cursive;
-  color: rgba(0, 0, 0, 0.699);
+  color: #2E20AC
 }
 
 .detailsBlock_3 {

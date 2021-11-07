@@ -2,40 +2,81 @@ const Product = require('../models/product.model')
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require('../utils/apifeatures');
+const cloudinary = require("cloudinary");
+
 
 // Create Product -- Admin
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
+    let images = [];
 
-    req.body.user = req.user.id
+    if (typeof req.body.images === "string") {
+        images.push(req.body.images);
+    } else {
+        images = req.body.images;
+    }
+
+    const imagesLinks = [];
+
+    for (let i = 0; i < images.length; i++) {
+        const result = await cloudinary.v2.uploader.upload(images[i], {
+            folder: "products",
+        });
+
+        imagesLinks.push({
+            public_id: result.public_id,
+            url: result.secure_url,
+        });
+    }
+
+    req.body.images = imagesLinks;
+    req.body.user = req.user.id;
 
     const product = await Product.create(req.body);
+
     res.status(201).json({
         success: true,
         product,
     });
+});
 
-})
+// Get All Product
+exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
 
-//get all product
-exports.getAllProducts = catchAsyncErrors(async (req, res) => {
+    const resultPerPage = 8;
+    const productsCount = await Product.countDocuments();
 
-    const resultPerPage = 5;
-    const productsCount = await Product.countDocuments()
+    console.log(req.query)
 
-
-
-    const apiFeatures = new ApiFeatures(Product.find(), req.query)
+    const apiFeature = new ApiFeatures(Product.find(), req.query)
         .search()
-        .filter()
-        .pagination(resultPerPage)
+        .filter();
 
-    const products = await apiFeatures.query;
-    res.status(201).json({
+    let products = await apiFeature.query;
+
+    let filteredProductsCount = products.length;
+
+    apiFeature.pagination(resultPerPage);
+
+    products = await apiFeature.query;
+
+    res.status(200).json({
         success: true,
         products,
-        productsCount
+        productsCount,
+        resultPerPage,
+        filteredProductsCount,
     });
-})
+});
+
+// Get All Product (Admin)
+exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+    const products = await Product.find();
+
+    res.status(200).json({
+        success: true,
+        products,
+    });
+});
 
 // Get Product Details
 exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
@@ -51,44 +92,72 @@ exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+// Update Product -- Admin
 
-//update product -- admin
 exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
-    let product = await Product.findById(req.params.id)
+    let product = await Product.findById(req.params.id);
+
     if (!product) {
-        return res.status(500).json({
-            success: false,
-            message: "product not found"
-        })
+        return next(new ErrorHandler("Product not found", 404));
+    }
+
+    // Images Start Here
+    let images = [];
+
+    if (typeof req.body.images === "string") {
+        images.push(req.body.images);
+    } else {
+        images = req.body.images;
+    }
+
+    if (images !== undefined) {
+        // Deleting Images From Cloudinary
+        for (let i = 0; i < product.images.length; i++) {
+            await cloudinary.v2.uploader.destroy(product.images[i].public_id);
+        }
+
+        const imagesLinks = [];
+
+        for (let i = 0; i < images.length; i++) {
+            const result = await cloudinary.v2.uploader.upload(images[i], {
+                folder: "products",
+            });
+
+            imagesLinks.push({
+                public_id: result.public_id,
+                url: result.secure_url,
+            });
+        }
+
+        req.body.images = imagesLinks;
     }
 
     product = await Product.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
-        runValidator: true,
-        useFindAndModify: false
-    })
+        runValidators: true,
+        useFindAndModify: false,
+    });
 
     res.status(200).json({
         success: true,
-        product: product,
-    })
-
-})
-
+        product,
+    });
+});
 
 // Delete Product
 
-exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 
+exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
     const product = await Product.findById(req.params.id);
 
     if (!product) {
-        return res.status(500).json({
-            success: false,
-            message: "product not found"
-        })
+        return next(new ErrorHandler("Product not found", 404));
     }
 
+    // Deleting Images From Cloudinary
+    for (let i = 0; i < product.images.length; i++) {
+        await cloudinary.v2.uploader.destroy(product.images[i].public_id);
+    }
 
     await product.remove();
 
@@ -96,7 +165,8 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
         success: true,
         message: "Product Delete Successfully",
     });
-})
+});
+
 
 // create new review or update the review 
 exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
@@ -175,7 +245,31 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
 
     let ratings = 0;
 
-    if (reviews.length === 0) {
+    if (reviews.length === 0) {// Get All Product
+        exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
+            const resultPerPage = 8;
+            const productsCount = await Product.countDocuments();
+
+            const apiFeature = new ApiFeatures(Product.find(), req.query)
+                .search()
+                .filter();
+
+            let products = await apiFeature.query;
+
+            let filteredProductsCount = products.length;
+
+            apiFeature.pagination(resultPerPage);
+
+            products = await apiFeature.query;
+
+            res.status(200).json({
+                success: true,
+                products,
+                productsCount,
+                resultPerPage,
+                filteredProductsCount,
+            });
+        });
         ratings = 0;
     } else {
         ratings = avg / reviews.length;
