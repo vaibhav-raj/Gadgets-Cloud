@@ -1,0 +1,47 @@
+.footer {
+  margin-top: 10vmax;
+  padding: 0.5vmax;
+  background-color: rgb(34, 33, 33);
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+}
+
+.rightFooter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightFooter > a {
+  text-decoration: none;
+  font-size: 1.2vmax;
+  color: white;
+  transition: all 0.5s;
+  margin: 0.3vmax;
+}
+
+.rightFooter > a:hover {
+  color: #b49458;
+}
+
+.TwitterIcon {
+  color: #1C9CEA;
+}
+.FacebookIcon{
+  color: #1976D2;
+}
+.InstagramIcon{
+  color: #C32083;
+}
+
+
+
+@media screen and (max-width: 600px){
+.rightFooter > a { 
+  font-size: 2vmax;
+
+}
+}

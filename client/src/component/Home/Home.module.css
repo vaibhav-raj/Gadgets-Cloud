@@ -1,0 +1,188 @@
+
+.banner {
+  background-image: url("https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80");
+  background-position: center;
+  background-size: cover;
+  height: 100vmin;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.banner > h1 {
+  margin: 2vmax;
+  font: 600 2.5vmax "Lucida Sans";
+  transform: translate(0, 500px);
+  animation: bannerh1 2s forwards;
+  text-shadow: 3px 0 rgba(219, 13, 13, 0.8);
+}
+.banner > p {
+  font: 300 2vmax "Lucida Sans";
+  transform: translate(-300px, -100px);
+  animation: bannerp1 2s forwards;
+  text-shadow: 3px 0 rgba(219, 13, 13, 0.8);
+
+}
+
+@keyframes bannerh1  {
+  to {
+  transform: translate(-200px, -100px);
+  }
+}
+@keyframes bannerp1  {
+  to {
+  transform: translate(-200px, -100px);
+  }
+}
+
+.banner > a > button {
+  margin-bottom: 5vmax;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 0;
+  padding: 1vmax;
+  transition: all 0.5s;
+  width: 9vmax;
+  font: 500 1vmax "Roboto";
+}
+.banner > a > button:hover {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
+
+.banner::after {
+  content: "";
+  width: 100vw;
+  height: 100vmin;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0%;
+  left: 0;
+ clip-path: polygon(0 72%, 0% 100%, 100% 100%);
+  max-width: 100%;
+}
+
+.homeHeading {
+  text-align: center;
+  font-family: Roboto;
+  font-size: 2vmax;
+  border-bottom: 1px solid #6D2484;
+  width: 30vmax;
+  padding: 1vmax;
+  margin: 5vmax auto;
+  color: #6D2484
+}
+
+.container {
+  display: flex;
+  margin: 2vmax auto;
+  padding:2vmax 0;
+  width: 80vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  background-image: url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1429&q=80");
+}
+
+.productCard {
+  height: 22vmax;
+  width: 16vmax;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #2E21AC;
+  margin: 1.5vmax;
+  transition: all 0.5s;
+  padding: 1.5vmax;
+  background-color: #FEF9EF;
+  border: 2px solid rgb(92, 83, 83);
+  border-radius:2%;
+}
+
+.productCard > img {
+  height: 50%;
+  width: 16vmax;
+  border-radius: 2%;
+  height: 18vmax;
+}
+
+.productCard > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0.5vmax;
+}
+
+.productCardSpan {
+  margin: 0.5vmax;
+  font: 300 0.7vmax "Roboto";
+}
+
+.productCard > p {
+  font-family: "Roboto";
+  font-size: 1.2vmax;
+  margin: 0.5vmax 0.5vmax;
+  margin-bottom: 0;
+}
+
+.productCard > span {
+  margin: 0.5vmax;
+    color: #2E21AC;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.2vmax;
+  
+}
+
+.productCard:hover {
+  box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
+  transform: translateY(-1vmax);
+}
+
+
+@media screen and (max-width: 600px) {
+  .banner {
+  background-size: auto;  
+}
+
+  .banner > p {
+  font: 300 2.5vmax "Lucida Sans";
+}
+  .homeHeading {
+  font-size: 2.3vmax;
+  
+}
+
+  .productCard {
+  width: 80vmax;
+  
+}
+.productCard > img {
+  width: 35vmax;
+  height: 30vmax;
+}
+  .productCard > p {
+    font-size: 2vmax;
+    
+  }
+
+  .productCard > div {
+    margin: 0vmax;
+    display: block;
+
+  }
+
+  .productCard > span {
+    font-size: 2.5vmax;
+
+  }
+
+  .productCard > div > span {
+    margin:  0 0.3vmax;
+    font: 300 2vmax "Roboto";
+
+  }
+}

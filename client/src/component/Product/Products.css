@@ -1,0 +1,142 @@
+.productsHeading {
+  margin: 1vmax auto;
+  width: 35vw;
+  padding: 1.5vmax;
+   color: #6D2484;
+  font: 500 1.5vmax "Roboto";
+  text-align: center;
+  border-bottom: 1px solid #6D2484;
+}
+.cont{
+    background-image: url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1429&q=80");
+}
+.products {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5vmax;
+  justify-content: center;
+  min-height: 30vh;
+  margin-left:6%;
+  
+}
+
+
+.paginationBox {
+  display: flex;
+  justify-content: center;
+  margin: 6vmax;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.page-item {
+  background-color: rgb(255, 255, 255);
+  list-style: none;
+  border: 1px solid rgba(0, 0, 0, 0.178);
+  padding: 1vmax 1.5vmax;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.page-item:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.page-item:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.page-link {
+  text-decoration: none;
+  font: 300 0.7vmax "Roboto";
+  color: rgb(80, 80, 80);
+  transition: all 0.3s;
+}
+
+.page-item:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.page-item:hover .page-link {
+  color: rgb(0, 0, 0);
+}
+
+.pageItemActive {
+  background-color: #2E21AC;
+}
+
+.pageLinkActive {
+  color: white;
+}
+
+.filters{
+  background-color:rgb(224, 221, 221) !important;
+  width:15vw;
+   height:90vh;
+   position: absolute;
+   top: -10px;
+   
+
+}
+.filterBox {
+  width: 10vmax;
+  position: relative;
+  top: 10vmax;
+  left: 2vmax;
+
+}
+
+.categoryBox {
+  padding: 0%;
+}
+
+.category-link {
+  list-style: none;
+  color: rgba(0, 0, 0, 0.61);
+  font: 400 1.2vmax "Roboto";
+  margin: 0.4vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.category-link:hover {
+  color: #2E21AC;
+}
+
+.filterBox > fieldset {
+  border: 1px solid rgba(0, 0, 0, 0.329);
+}
+
+@media screen and (max-width: 600px) {
+  .products {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5vmax;
+  justify-content: center;
+  min-height: 30vh;
+
+}
+  .filters {
+    position:relative;
+    width: 30vmax;
+      margin: auto;
+
+      height:50vh;
+      padding:8%;
+
+  }
+  .filterBox {
+    width: 30vmax;
+    position: static;
+    margin: auto;
+  }
+
+  .page-link {
+    font: 300 1.7vmax "Roboto";
+  }
+  .category-link {
+    font: 400 1.8vmax "Roboto";
+  }
+}
