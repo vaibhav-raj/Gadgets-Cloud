@@ -6,7 +6,7 @@ In this project we made fully-functional e-commerce website named as Gadgets-Clo
 
 ## Technologies & Libraries used
 #### Tech Stack-
-<p float="left" "> <a
+<p float="left"> <a
                 href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img
                         src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
                         alt="javascript" width="100" height="100" /> </a> <a href="https://postman.com" target="_blank">
