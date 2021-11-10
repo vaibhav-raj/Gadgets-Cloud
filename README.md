@@ -28,7 +28,7 @@ In this project we made fully-functional e-commerce website named as Gadgets-Clo
 
 #### Libraries Stack-
 
-1. styled-components
+1. JWT-Authentication
 2. material-ui
 3. react-stripe-js
 4. axios
@@ -41,7 +41,7 @@ In this project we made fully-functional e-commerce website named as Gadgets-Clo
 2. Can log in using given credentials during registration.
 3. User can search for an available product.
 4. User can filter for selecting products according to catagories.
-5. User can make payments and succcessfully book a room.
+5. User can add products to the cart and can also make payments.
 
 ## Prerequisites-
 
@@ -76,7 +76,7 @@ npm run start
   
 ## Lessons Learned
 
-I am new to backend development. These are some topics which were challenging during the course of my projrct:-
+I am new to backend development. These are some topics which were challenging during the course of my project:-
 - Using new libraries were challenging but it was a great learning experience at the same time.
 - Authentication part was a bit complex to deal with.
 - Admin page functionalities took a little time to complete.
