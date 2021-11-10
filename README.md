@@ -72,7 +72,7 @@ npm run start
  </p>
  
  Click the link to view project: 
- <a href="https://travelguru-clone.herokuapp.com/">Travel_Guru</a>
+ <a href="https://gadgets-cloud.herokuapp.com/">Gadgets-Cloud</a>
   
 ## Lessons Learned
 
